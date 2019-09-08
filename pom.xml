@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>br.ufg.fct</groupId>
+	<artifactId>cep</artifactId>
+	<version>1.0-SNAPSHOT</version>
+
+	<name>cep</name>
+	<url>http://transportes.fct.ufg.br</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.espertech</groupId>
+			<artifactId>esper-runtime</artifactId>
+			<version>8.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.espertech</groupId>
+			<artifactId>esper-compiler</artifactId>
+			<version>8.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.espertech</groupId>
+			<artifactId>esperio-http</artifactId>
+			<version>8.2.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.0.2</version>
+					<configuration>
+						<excludes>
+							<exclude>*properties</exclude>
+						</excludes>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>3.1.1</version>
+					<configuration>
+						<descriptorRefs>
+							<descriptorRef>jar-with-dependencies</descriptorRef>
+						</descriptorRefs>
+						<archive>
+							<manifest>
+								<mainClass>br.ufg.fct.cep.Boot</mainClass>
+							</manifest>
+						</archive>
+					</configuration>
+					<executions>
+						<execution>
+							<id>make-assembly</id> <!-- this is used for inheritance merges -->
+							<phase>package</phase> <!-- bind to the packaging phase -->
+							<goals>
+								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<description>Projeto com código tutorial do Minicurso &quot;AN INTRODUCTION TO DATA STREAM PROCESSING: A COMPLEX EVENT PROCESSING APPROACH&quot; do WebMedia 2019</description>
+</project>
