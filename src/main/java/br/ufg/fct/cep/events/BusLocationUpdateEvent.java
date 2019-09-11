@@ -1,4 +1,4 @@
-package br.ufg.fct.cep;
+package br.ufg.fct.cep.events;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -17,12 +17,12 @@ public class BusLocationUpdateEvent implements Serializable {
     /**
      * Attributes
      */
-    public LocalDateTime data;
-    public String id;
-    public int linha;
-    public double latitude;
-    public double longitude;
-    public double velocidade;
+    private LocalDateTime data;
+    private String id;
+    private int linha;
+    private double latitude;
+    private double longitude;
+    private double velocidade;
 
     /**
      * Empty constructor for reflection
